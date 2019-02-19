@@ -34,4 +34,7 @@ before_install:
   - ./bazel-0.14.1-installer-linux-x86_64.sh --user
 
 script:
-  - bazel test //src/...
+  - bazel test :hello_test
+  - bazel build :hello_main
+  - bazel run hello_main
+  - bazel run hello_main Abseil!
