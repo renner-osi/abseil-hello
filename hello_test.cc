@@ -23,6 +23,7 @@ namespace {
 
 TEST(Greeter, Works) {
   EXPECT_EQ("Hello tester", Greet("tester"));
+  EXPECT_EQ("Hello tester2", Greet("tester2"));
 }
 
 }  // namespace 
