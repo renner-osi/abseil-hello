@@ -1,0 +1,36 @@
+dist: trusty
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - wget
+      - pkg-config
+      - zip 
+      - g++ 
+      - zlib1g-dev
+      - unzip
+      - python 
+      - ca-certificates
+      - ssh
+      - git
+      - gdb
+      - sudo
+      - libudev-dev
+      - libjudy-dev
+      - bison 
+      - flex
+      - libfl-dev
+      - libgmp-dev
+      - libi2c-dev
+
+
+
+before_install:
+  - wget https://github.com/bazelbuild/bazel/releases/download/0.14.1/bazel-0.14.1-installer-linux-x86_64.sh 
+  - chmod +x bazel-$BAZEL_VERSION-installer-linux-x86_64.sh
+  - ./bazel-0.14.1-installer-linux-x86_64.sh
+
+script:
+  - bazel test //src/...
